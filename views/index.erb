@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gravatar API</title>
+	<style>
+	html, body {
+		margin: 0;
+	}
+	</style>
+</head>
+<body>
+	<% if @email && @url %>
+		<img src="<%= @url %>" alt="<%= @email %>'s Gravatar">
+	<% else %>
+		<link rel="stylesheet" href="/help.css">
+		<h1>Hi there!</h1>
+	<% end %>
+</body>
+</html>
