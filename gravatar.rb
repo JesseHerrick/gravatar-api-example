@@ -17,9 +17,13 @@ get '/:email' do
 	@email = params[:email]
 	profile = Gravatar.new(@email)
 	@url = profile.url
+
+	erb :index
 end
 
 get '/:email/:size' do 
 	@profile = Gravatar.new(params[:email])
 	@url = @profile.url(:size => params[:size])
+
+	erb :index
 end
