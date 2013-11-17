@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'digest/md5'
 require 'json'
+require 'gravatar-api'
 
 helpers do
 	def hash!(string)
@@ -13,21 +14,12 @@ get '/' do
 end
 
 get '/:email' do
-	@email = params[:email].downcase
-	@hash = hash!(@email)
-	
-	@url = "http://www.gravatar.com/avatar/#{@hash}"
-	
-	erb :index
+	@email = params[:email]
+	profile = Gravatar.new(@email)
+	@url = profile.url
 end
 
-get '/:email/:size' do
-	@email = params[:email].downcase
-	@hash = hash!(@email)
-
-	@size = params[:size]
-
-	@url = "http://www.gravatar.com/avatar/#{@hash}?s=#{@size}"	
-
-	erb :index
+get '/:email/:size' do 
+	@profile = Gravatar.new(params[:email])
+	@url = @profile.url(:size => params[:size])
 end
