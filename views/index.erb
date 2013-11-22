@@ -2,18 +2,17 @@
 <html>
 <head>
 	<title>Gravatar API</title>
-	<style>
-	html, body {
-		margin: 0;
-	}
-	</style>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-	<% if @url %>
-		<img src="<%= @url %>" alt="<%= @email %>'s Gravatar">
-	<% else %>
-		<link rel="stylesheet" href="/help.css">
-		<h1>Gravatar API Access</h1>
-	<% end %>
+	<link rel="stylesheet" href="/help.css">
+	<h2>Wait a second... Where am I?</h2>
+	<p>Hello young one. I understand you are confused. Try this on for size:</p>
+	<pre>
+	<code class="center">http://gravatar.jessegrant.net/jessegrantherrick@gmail.com/200</code>
+	</pre>
+
+	<h2>I'm still confused.</h2>
+	<p>If you're still wondering what this is and how to use it, <a href="#">check out this blog post.</a></p>
 </body>
 </html>
